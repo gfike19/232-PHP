@@ -41,22 +41,32 @@ function Exer1 (){
         }
      }
 
-    function Exer5() {
+    function Exer6() {
         // sidebar i prefer "Sphinx of black quartz, judge my vow!" in terms of panagrams
         $words = array("The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog.");
         $f = fopen("testFile.txt", "w+");
     
         foreach ($words as $value) {
             fwrite($f, $value);
-            // below places spacing in between words
             fwrite($f, "\n");
         }
         fclose($f);
+        
+        $f = fopen("testFile.txt", "r");
+        $lines = fread($f, filesize("testFile.txt"));
+        fclose($f);
+        $arr = explode("\n", $lines);
+        
+        DisplayOneWordAtATime($arr);
+
+        for($i = sizeof($arr)-1; $i >= 0; $i--){
+            echo $arr[$i]."<br>";
+        }
     }
 
     // Exer1();
     // $arr = ReadFileAndStoreInArrayList("FamousWords.txt");
     // DisplayOneWordAtATime($arr);
     // AllOnOneLine($arr);
-    // Exer6();
+    Exer6();
 ?>

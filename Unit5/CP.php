@@ -25,7 +25,9 @@ function FileLineCount($fileName) {
     }
     return $count;
 }
- echo "<b>Task 1</b><br>There are ".FileLineCount("ProducePrice.txt")." products in the file.";
+
+$count1 = FileLineCount("ProducePrice.txt");
+ echo "<b>Task 1</b><br>There are ".$count1." products in the file.";
 
 $more = array("peppers 0.99","celery 1.29","cabbage 0.79","tomatoes 1.19");
 $newfile = fopen("ProducePrice.txt", "a+");
@@ -34,7 +36,24 @@ foreach ($more as $value) {
     fwrite($newfile, "\n");
 }
 fclose($newfile);
+$count2 = FileLineCount("ProducePrice.txt");
+echo "<br><b>Task 2</b><br>There are ".$count2." products in the file.";
 
-echo "<br><b>Task 2</b><br>There are ".
-FileLineCount("ProducePrice.txt")." products in the file.";
+$arr = array();
+$index = 1;
+$handle = fopen("ProducePrice.txt", "r");
+echo "<br><b>Task 3</b><br>";
+if ($handle) {
+    while (($line = fgets($handle)) !== false) {
+        array_push($arr, $line);
+        echo $index." ".$line."<br>";
+        $index++;
+    }
+
+    fclose($handle);
+} else {
+    echo "Error reading file";
+} 
+
+echo "There are ".sizeof($arr)." products in the produce list.";
 ?>

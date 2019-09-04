@@ -1,26 +1,4 @@
 <?php
-// // Active assert and make it quiet
-// assert_options(ASSERT_ACTIVE, 1);
-// assert_options(ASSERT_WARNING, 0);
-// assert_options(ASSERT_QUIET_EVAL, 1);
-
-// // Create a handler function
-// function my_assert_handler($file, $line, $code)
-// {
-//     echo "<hr>Assertion Failed:
-//         File '$file'<br />
-//         Line '$line'<br />
-//         Code '$code'<br /><hr />";
-// }
-
-// // Set up the callback
-// assert_options(ASSERT_CALLBACK, 'my_assert_handler');
-
-// $uInput = $_POST["uInput"];
-
-// // Make an assertion that should fail
-// assert(!empty($uInput), "Parameter must not be null");
-
 // Active assert and make it quiet
 assert_options(ASSERT_ACTIVE, 1);
 assert_options(ASSERT_WARNING, 0);
@@ -76,15 +54,14 @@ function arrOutbound($arr, $num) {
 }
 
 function intOverflow($num){
-    $num /= 2;
-    return settype($num, "int");
+    return chr($num);
 }
 
 $num7 = $_POST["num7"];
 
 try{
-    divByZero($num7);
-    arrOutbound($arr, $num7);
+    // divByZero($num7);
+    // arrOutbound($arr, $num7);
     intOverflow($num7);
 }
 catch(Exception $e) {

@@ -1,0 +1,4 @@
+[16-Sep-2019 19:55:49 Europe/Berlin] PHP Warning:  fopen(ProducePrice.txt): failed to open stream: No such file or directory in C:\xampp\htdocs\232-PHP\unit7\unit7_exer.php on line 28
+[16-Sep-2019 19:55:49 Europe/Berlin] Files does not exist<br>
+[16-Sep-2019 19:55:49 Europe/Berlin] Array out of bounds<br>
+[16-Sep-2019 19:55:49 Europe/Berlin] Tried to divide by zero<br>
